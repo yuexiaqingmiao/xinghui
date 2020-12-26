@@ -1,22 +1,23 @@
 {
-  "name": "zangxian",
+  "name": "xinghui",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hug-love/zangxian.git"
+    "url": "git+https://github.com/hug-love/xinghui.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hug-love/zangxian/issues"
+    "url": "https://github.com/hug-love/xinghui/issues"
   },
-  "homepage": "https://github.com/hug-love/zangxian#readme",
+  "homepage": "https://github.com/hug-love/xinghui#readme",
   "dependencies": {
     "express": "^4.17.1"
   }

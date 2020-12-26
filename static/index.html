@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>幸会</title>
+		<link rel="icon" href="./imgs/music.svg">
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			html,
+			body {
+				height: 100%;
+				cursor: url('./imgs/cursor20x20.svg'), auto;
+				user-select: none;
+			}
+
+			a {
+				text-decoration: none;
+			}
+
+			.container {
+				padding: 20px;
+				box-sizing: border-box;
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+			}
+
+			.title {
+				font-size: 20px;
+			}
+
+			/* 幸会记 */
+			.like-music {
+				margin-top: 20px;
+				line-height: 30px;
+			}
+
+			.like-music span:nth-child(1) {
+				vertical-align: middle;
+			}
+
+			.like-music span:nth-child(2) {
+				position: relative;
+				top: 2px;
+			}
+
+			.play-icon {
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				cursor: pointer;
+				background: url('./imgs/music.svg') no-repeat center/100% 100%;
+				transform-origin: 15px 15.5px;
+				animation: rotate infinite 1.5s linear paused;
+			}
+
+			@keyframes rotate {
+				from {
+					transform: rotate(0);
+				}
+
+				to {
+					transform: rotate(360deg);
+				}
+			}
+
+			/* footer */
+			footer {
+				font-size: 12px;
+				text-align: center;
+				margin-top: auto;
+			}
+
+			/* ipc备案 */
+			.icp {
+				color: #208BB5;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1 class="title">幸会</h1>
+			<div class="like-music">
+				<span class="play-icon"></span>
+				<span>幸会记 - 鸦青</span>
+			</div>
+
+			<audio id="xing-hui-ji">
+				<source src="./audio/xinghuiji-yaqing.m4a" type="audio/mp4">
+			</audio>
+
+			<footer>
+				©Copyright 2020~2021
+				<a href="https://beian.miit.gov.cn/" target="_blank" class="icp">豫ICP备2020029461号</a>
+			</footer>
+		</div>
+
+		<script type="text/javascript">
+			// 幸会记-鸦青
+			const likeMusic = document.getElementsByClassName('like-music')[0];
+			// 播放按钮
+			const playIcon = document.getElementsByClassName('play-icon')[0];
+			// 声音元素
+			const audio = document.getElementById('xing-hui-ji');
+			
+			// 添加点击事件
+			likeMusic.onclick = function() {
+				if (this.dataset.playing === 'true') {
+					audio.pause();
+					playIcon.style.animationPlayState = 'paused';
+					this.dataset.playing = 'false';
+				} else {
+					audio.play();
+					playIcon.style.animationPlayState = 'running';
+					this.dataset.playing = 'true';
+				}
+			}
+			// 声音播放完毕后，置为false
+			audio.addEventListener('ended', () => {
+				likeMusic.dataset.playing = 'false';
+				playIcon.style.animationPlayState = 'paused';
+			}, false);
+		</script>
+	</body>
+</html>
