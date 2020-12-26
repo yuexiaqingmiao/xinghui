@@ -10,7 +10,7 @@ app.use('/yu', express.static(path.join(__dirname, '../static'))); // 静态资�
 
 // 首页
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, '../static', 'index.html'));
+  res.redirect('/yu/index.html');
 });
 
 // 404处理
